@@ -2,11 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-.design-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-.design-overlay:hover {
-  opacity: 0.2;
+/* Ajout des styles personnalisés dans la couche "utilities" */
+@layer utilities {
+  .design-overlay {
+    @apply absolute inset-0 z-10;
+  }
+  .design-overlay:hover {
+    @apply opacity-20;
+  }
+  .selected {
+    @apply scale-105 transform text-white shadow-lg transition-transform;
+  }
+  html {
+    @apply bg-gradient-to-r from-slate-50 to-teal-600;
+  }
+
+  /* Styles pour la scrollbar */
+  ::-webkit-scrollbar {
+    @apply h-2 w-2; /* Barre plus fine pour un look moderne */
+  }
+
+  ::-webkit-scrollbar-track {
+    /* Couleur de fond avec dégradé subtil */
+    @apply bg-teal-600;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    /* Poignée avec dégradé et ombre légère */
+    @apply bg-white;
+    @apply rounded-full shadow-md; /* Forme arrondie avec ombre */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    /* Couleur plus vive au survol */
+    @apply cursor-grab shadow-lg; /* Ombre plus marquée */
+  }
 }
